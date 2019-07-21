@@ -23,6 +23,7 @@
 		26C4E6D022D9C31A000CAC3E /* example10.c in Sources */ = {isa = PBXBuildFile; fileRef = 26C4E6CF22D9C31A000CAC3E /* example10.c */; };
 		26C4E6D222D9C689000CAC3E /* example11.c in Sources */ = {isa = PBXBuildFile; fileRef = 26C4E6D122D9C689000CAC3E /* example11.c */; };
 		26C4E6D422D9C81E000CAC3E /* example12.c in Sources */ = {isa = PBXBuildFile; fileRef = 26C4E6D322D9C81E000CAC3E /* example12.c */; };
+		26F6705622E42F3100D25F72 /* Test.c in Sources */ = {isa = PBXBuildFile; fileRef = 26F6705522E42F3100D25F72 /* Test.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +56,8 @@
 		26C4E6CF22D9C31A000CAC3E /* example10.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = example10.c; sourceTree = "<group>"; };
 		26C4E6D122D9C689000CAC3E /* example11.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = example11.c; sourceTree = "<group>"; };
 		26C4E6D322D9C81E000CAC3E /* example12.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = example12.c; sourceTree = "<group>"; };
+		26F6705422E42F3100D25F72 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		26F6705522E42F3100D25F72 /* Test.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Test.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,8 @@
 				2656453822DD7DE000665263 /* example13.c */,
 				2656453A22DD818300665263 /* example14.c */,
 				2660E5B622DF6B93000862FE /* cal.c */,
+				26F6705422E42F3100D25F72 /* Test.h */,
+				26F6705522E42F3100D25F72 /* Test.c */,
 			);
 			path = printExample1;
 			sourceTree = "<group>";
@@ -163,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26F6705622E42F3100D25F72 /* Test.c in Sources */,
 				265E997222D8771B0003743D /* example02.c in Sources */,
 				26C4E6D422D9C81E000CAC3E /* example12.c in Sources */,
 				265E996922D870770003743D /* main.c in Sources */,
