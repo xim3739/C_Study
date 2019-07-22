@@ -1,8 +1,8 @@
 //*/
 #include <stdio.h>
 
-int sum(int *arr, int a);
-int avg(int *arr, int a);
+int sum(int *arr, int size);
+int avg(int *arr, int size);
 
 int main() {
     
@@ -36,12 +36,12 @@ int main() {
     return 0;
 }
 
-int sum(int *arr, int a){
+int sum(int *arr, int size){
             //arr[]
     int i = 0;
     int sum = 0;
     
-    for(i = 0; i < a; i++){
+    for(i = 0; i < size; i++){
         
         sum = sum + arr[i];
         
@@ -51,16 +51,16 @@ int sum(int *arr, int a){
     
 }
 
-int avg(int *arr, int a) {
+int avg(int *arr, int size) {
     
     int i = 0;
     int sum = 0;
     
-    for(i = 0; i < a; i++){
+    for(i = 0; i < size; i++){
         sum = sum + arr[i];
     }
     
-    return sum / a;
+    return sum / size;
     
 }
 //*/

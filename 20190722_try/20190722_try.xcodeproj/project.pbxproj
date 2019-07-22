@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		26D0405D22E52B3100E0C76D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D0405C22E52B3100E0C76D /* main.c */; };
 		26D0406422E5302700E0C76D /* array_test_02.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D0406322E5302700E0C76D /* array_test_02.c */; };
+		26D0406622E5535C00E0C76D /* random_function.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D0406522E5535C00E0C76D /* random_function.c */; };
+		26D0406822E5710200E0C76D /* random_pretice.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D0406722E5710200E0C76D /* random_pretice.c */; };
+		26D0406A22E5812B00E0C76D /* example_240_9_4.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D0406922E5812B00E0C76D /* example_240_9_4.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +30,9 @@
 		26D0405922E52B3100E0C76D /* 20190722_try */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = 20190722_try; sourceTree = BUILT_PRODUCTS_DIR; };
 		26D0405C22E52B3100E0C76D /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		26D0406322E5302700E0C76D /* array_test_02.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = array_test_02.c; sourceTree = "<group>"; };
+		26D0406522E5535C00E0C76D /* random_function.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = random_function.c; sourceTree = "<group>"; };
+		26D0406722E5710200E0C76D /* random_pretice.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = random_pretice.c; sourceTree = "<group>"; };
+		26D0406922E5812B00E0C76D /* example_240_9_4.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = example_240_9_4.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,9 @@
 			children = (
 				26D0405C22E52B3100E0C76D /* main.c */,
 				26D0406322E5302700E0C76D /* array_test_02.c */,
+				26D0406522E5535C00E0C76D /* random_function.c */,
+				26D0406722E5710200E0C76D /* random_pretice.c */,
+				26D0406922E5812B00E0C76D /* example_240_9_4.c */,
 			);
 			path = 20190722_try;
 			sourceTree = "<group>";
@@ -122,6 +131,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				26D0405D22E52B3100E0C76D /* main.c in Sources */,
+				26D0406822E5710200E0C76D /* random_pretice.c in Sources */,
+				26D0406A22E5812B00E0C76D /* example_240_9_4.c in Sources */,
+				26D0406622E5535C00E0C76D /* random_function.c in Sources */,
 				26D0406422E5302700E0C76D /* array_test_02.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
