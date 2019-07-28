@@ -57,23 +57,23 @@ void is_prime(void){
 void match_prime(int num){
     
     int i = 0, j = 0;
+    int matchFlage = 0;
     
     for(i = 2; i <= 100; i++){
         for(j = 2; j <= i; j++){
-            if(i % j ==0){
+            if(i % j == 0){
                 break;
             }
-        }
-        
-        if(num == i || num == j){
-            printf("%d is prime. \n", num);
-            break;
-        } else {
-            printf("%d is not prime. \n", num);
-            break;
+            if(num == i){
+                matchFlage = 1;
+            }
         }
     }
-    
+    if(matchFlage == 1){
+        printf("%d is prime \n", num);
+    }else{
+        printf("%d is not prime \n", num);
+    }
     
     return;
 }
