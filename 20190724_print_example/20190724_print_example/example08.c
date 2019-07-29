@@ -8,6 +8,7 @@ double f_rand(void);
 int main(){
     
     double randValue = 0.0;
+    
     int i = 0;
     
     srand((unsigned)time(NULL));

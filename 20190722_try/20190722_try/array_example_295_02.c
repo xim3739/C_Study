@@ -9,17 +9,12 @@ int main() {
     int studentScore [10] = { };
     int scoreSum = 0;
     int scoreAvg = 0;
+    int i = 0;
     
-    studentScore[0] = 80;
-    studentScore[1] = 40;
-    studentScore[2] = 70;
-    studentScore[3] = 60;
-    studentScore[4] = 90;
-    studentScore[5] = 80;
-    studentScore[6] = 10;
-    studentScore[7] = 20;
-    studentScore[8] = 20;
-    studentScore[9] = 90;
+    for(i = 0; i < 10; i++) {
+        printf("student %d : ", i+1);
+        scanf("%d",&studentScore[i]);
+    }
     
     
     scoreSum = sum(studentScore,sizeof(studentScore)/sizeof(int));

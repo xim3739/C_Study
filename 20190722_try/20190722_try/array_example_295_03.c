@@ -3,43 +3,57 @@
 
 int main() {
     
-    int widthSum1 = 0, widthSum2 = 0, widthSum3 = 0, heightSum1 = 0, heightSum2 = 0, heightSum3 = 0, heightSum4 = 0, heightSum5 = 0, totalSum = 0;
-    int array1 [5] = {90, 78, 77, 98, 98};
-    int array2 [5] = {80, 45, 67, 88, 57};
-    int array3 [5] = {88, 99, 65, 55, 74};
+    int widthSum[3] = { };
+    int heighSum[5] = { };
+    int array1 [5] = { };
+    int array2 [5] = { };
+    int array3 [5] = { };
     int i = 0;
+    int total = 0;
     
-    for(i = 0; i < 5; i++){
-        widthSum1 = widthSum1 + array1[i];
-    }
-    printf("first width Sum : %d \n", widthSum1);
-    for(i = 0; i < 5; i++){
-        widthSum2 = widthSum2 + array2[i];
-    }
-    printf("second width Sum : %d \n", widthSum2);
-    for(i = 0; i < 5; i++){
-        widthSum3 = widthSum3 + array3[i];
-    }
-    printf("third width Sum : %d \n", widthSum3);
+    //입력
     
-    heightSum1 = array1[0] + array2[0] + array3[0];
-    heightSum2 = array1[1] + array2[1] + array3[1];
-    heightSum3 = array1[2] + array2[2] + array3[2];
-    heightSum4 = array1[3] + array2[3] + array3[3];
-    heightSum5 = array1[4] + array2[4] + array3[4];
-    
-    for(i = 0; i < 5; i++){
-        totalSum = totalSum + array1[i] + array2[i] + array3[i];
+    for(i = 0; i < 5; i++) {
+        printf("array1[%d] : ", i);
+        scanf("%d", &array1[i]);
     }
     
-    printf("frist height sum : %d \n", heightSum1);
-    printf("frist height sum : %d \n", heightSum2);
-    printf("frist height sum : %d \n", heightSum3);
-    printf("frist height sum : %d \n", heightSum4);
-    printf("frist height sum : %d \n", heightSum5);
+    for(i = 0; i < 5; i++) {
+        printf("array2[%d] : ", i);
+        scanf("%d", &array2[i]);
+    }
     
-    printf("totla sum : %d \n", totalSum);
+    for(i = 0; i < 5; i++) {
+        printf("array3[%d] : ", i);
+        scanf("%d", &array3[i]);
+    }
     
+    //가로 합
+    
+    for(i = 0; i < 5; i++) {
+        widthSum[0] = widthSum[0] + array1[i];
+    }
+    
+    for(i = 0; i < 5; i++) {
+        widthSum[1] = widthSum[1] + array2[i];
+    }
+    
+    for(i = 0; i < 5; i++) {
+        widthSum[2] = widthSum[2] + array3[i];
+    }
+    
+    //세로합
+    
+    for(i = 0; i < 5; i++) {
+        heighSum[i] = array1[i] + array2[i] + array3[i];
+    }
+    
+    total = widthSum[0] + widthSum[1] + widthSum[2] + heighSum[0] + heighSum[1] + heighSum[2] + heighSum[3] + heighSum[4];
+    
+    printf("%d      %d      %d      %d      %d      %d \n", array1[0],array1[1],array1[2],array1[3],array1[4],widthSum[0]);
+    printf("%d      %d      %d      %d      %d      %d \n", array2[0],array2[1],array2[2],array2[3],array2[4],widthSum[1]);
+    printf("%d      %d      %d      %d      %d      %d \n", array3[0],array3[1],array3[2],array3[3],array3[4],widthSum[2]);
+    printf("%d    %d     %d     %d     %d     %d \n", heighSum[0],heighSum[1],heighSum[2],heighSum[3],heighSum[4],total);
     
     return 0;
 }

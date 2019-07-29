@@ -14,18 +14,22 @@ int main(){
     int guesseNum = 0;
     char regame = 0;
     
+    srand((unsigned)time(NULL));
+    
     while(1){
+        
         num = input_number();
         guesseNum = b_rand();
         match_result(num, guesseNum);
         regame = input_regame();
-        if(regame == 'Y' || regame == 'y'){
+        
+        if(regame == 'Y' || regame == 'y') {
             continue;
-        }else if(regame == 'N' || regame == 'n'){
+        } else if(regame == 'N' || regame == 'n') {
             printf("exit game THANKS!!! \n");
             exit(1);
         }
-            
+
     }
     
     return 0;
@@ -36,6 +40,7 @@ int input_number(void){
     int num = 0;
     
     while(1){
+        
         printf("input number (1 or 0) : ");
         scanf("%d", &num);
         if(num < 0 || num > 1) {
@@ -59,12 +64,10 @@ int b_rand(void){
 
 void match_result(int num, int guesseNum){
     
-    if(num > guesseNum){
+    if(num == guesseNum){
         printf("YOU WIN !!! \n");
-    }else if(num == guesseNum){
-        printf("YOU DRAW !!! \n");
     }else{
-        printf("YOU LOSE !!! \n");
+        printf("YOU WRONG !!! \n");
     }
     
     return;
@@ -75,6 +78,7 @@ char input_regame(void){
     char regame = 0;
     
     while(1){
+        
         printf("try again?? ('Y'es or 'N'o) : ");
         rewind(stdin);
         scanf("%c", &regame);
