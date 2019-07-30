@@ -1,9 +1,30 @@
-//
-//  example04.c
-//  MyPrintExample
-//
-//  Created by 심재현 on 30/07/2019.
-//  Copyright © 2019 심재현. All rights reserved.
-//
-
+/*/
 #include <stdio.h>
+
+double recursive(double n);
+
+int main() {
+    
+    double num = 0;
+    double result = 0;
+    
+    printf("input number :");
+    scanf("%lf", &num);
+    
+    result = recursive(num);
+    
+    printf("%lf \n", result);
+    
+    
+    return 0;
+}
+
+double recursive(double n) {
+
+    if(n <= 1) {
+        return 1;
+    }else {
+        return (1.0/n+recursive(n-1));
+    }
+}
+//*/

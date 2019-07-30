@@ -1,5 +1,6 @@
 /*/
 #include <stdio.h>
+#include <stdlib.h>
 
 int input_number(void);
 void multy_result_store_array(int num);
@@ -8,11 +9,15 @@ int main() {
     
     int num = 0;
 
+    while(1){
+        num = input_number();
     
-    num = input_number();
-    
-    multy_result_store_array(num);
-    
+        multy_result_store_array(num);
+        
+        if(num == 20) {
+            exit(1);
+        }
+    }
     return 0;
 }
 
@@ -23,7 +28,7 @@ int input_number(void){
         printf("input number : ");
         scanf("%d", &num);
         
-        if(num < 0 || num > 12) {
+        if(num < 0 || num > 20) {
             printf("wrong input number... try again \n");
         }else
             break;
