@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2698C4A322EEF6F700E3E205 /* example01.c in Sources */ = {isa = PBXBuildFile; fileRef = 2698C4A222EEF6F700E3E205 /* example01.c */; };
 		2698C4AA22EEFCA300E3E205 /* example02.c in Sources */ = {isa = PBXBuildFile; fileRef = 2698C4A922EEFCA300E3E205 /* example02.c */; };
+		26BD8D5522F110DA00C633B6 /* array_example01.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BD8D5422F110D900C633B6 /* array_example01.c */; };
+		26BD8D5722F1118700C633B6 /* array_example02.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BD8D5622F1118700C633B6 /* array_example02.c */; };
 		26E6330922EFB56900C0DD2B /* example03.c in Sources */ = {isa = PBXBuildFile; fileRef = 26E6330822EFB56900C0DD2B /* example03.c */; };
 		26E6330B22EFB7B500C0DD2B /* example04.c in Sources */ = {isa = PBXBuildFile; fileRef = 26E6330A22EFB7B500C0DD2B /* example04.c */; };
 		26E6332022F0171100C0DD2B /* example05.c in Sources */ = {isa = PBXBuildFile; fileRef = 26E6331F22F0171100C0DD2B /* example05.c */; };
@@ -32,6 +34,8 @@
 		2698C49F22EEF6F700E3E205 /* MyPrintExample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MyPrintExample; sourceTree = BUILT_PRODUCTS_DIR; };
 		2698C4A222EEF6F700E3E205 /* example01.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = example01.c; sourceTree = "<group>"; };
 		2698C4A922EEFCA300E3E205 /* example02.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = example02.c; sourceTree = "<group>"; };
+		26BD8D5422F110D900C633B6 /* array_example01.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = array_example01.c; sourceTree = "<group>"; };
+		26BD8D5622F1118700C633B6 /* array_example02.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = array_example02.c; sourceTree = "<group>"; };
 		26E6330822EFB56900C0DD2B /* example03.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = example03.c; sourceTree = "<group>"; };
 		26E6330A22EFB7B500C0DD2B /* example04.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = example04.c; sourceTree = "<group>"; };
 		26E6331F22F0171100C0DD2B /* example05.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = example05.c; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 				26E6331F22F0171100C0DD2B /* example05.c */,
 				26E6332D22F032D700C0DD2B /* example06.c */,
 				26E6332F22F03BBA00C0DD2B /* example08.c */,
+				26BD8D5422F110D900C633B6 /* array_example01.c */,
+				26BD8D5622F1118700C633B6 /* array_example02.c */,
 			);
 			path = MyPrintExample;
 			sourceTree = "<group>";
@@ -139,8 +145,10 @@
 				26E6332E22F032D700C0DD2B /* example06.c in Sources */,
 				26E6333022F03BBA00C0DD2B /* example08.c in Sources */,
 				26E6330B22EFB7B500C0DD2B /* example04.c in Sources */,
+				26BD8D5722F1118700C633B6 /* array_example02.c in Sources */,
 				26E6330922EFB56900C0DD2B /* example03.c in Sources */,
 				2698C4AA22EEFCA300E3E205 /* example02.c in Sources */,
+				26BD8D5522F110DA00C633B6 /* array_example01.c in Sources */,
 				26E6332022F0171100C0DD2B /* example05.c in Sources */,
 				2698C4A322EEF6F700E3E205 /* example01.c in Sources */,
 			);
