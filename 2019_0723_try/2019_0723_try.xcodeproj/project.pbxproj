@@ -16,7 +16,7 @@
 		26BD8D6522F14A4300C633B6 /* 542_example_2_3.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BD8D6422F14A4300C633B6 /* 542_example_2_3.c */; };
 		26BD8D6922F14C4F00C633B6 /* print_example01.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BD8D6822F14C4F00C633B6 /* print_example01.c */; };
 		26BD8D6B22F14CD000C633B6 /* print_example02.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BD8D6A22F14CD000C633B6 /* print_example02.c */; };
-		26BD8D6D22F14DFB00C633B6 /* print_example03.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BD8D6C22F14DFB00C633B6 /* print_example03.c */; };
+		26BD8D6D22F14DFB00C633B6 /* print_example03_malloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BD8D6C22F14DFB00C633B6 /* print_example03_malloc.c */; };
 		26BD8D6F22F1532B00C633B6 /* print_example04.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BD8D6E22F1532B00C633B6 /* print_example04.c */; };
 		26BD8D7122F155B200C633B6 /* print_example05.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BD8D7022F155B200C633B6 /* print_example05.c */; };
 		26BD8D7322F1598800C633B6 /* print_example06.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BD8D7222F1598800C633B6 /* print_example06.c */; };
@@ -26,6 +26,9 @@
 		26D98A5822E67CF8000AD14F /* array_exmaple_325_02.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D98A5722E67CF8000AD14F /* array_exmaple_325_02.c */; };
 		26D98A5F22E68326000AD14F /* array_example_325_03.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D98A5E22E68326000AD14F /* array_example_325_03.c */; };
 		26D98A6122E685B4000AD14F /* example_246_9_7.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D98A6022E685B4000AD14F /* example_246_9_7.c */; };
+		26FDA9FD22F25BE000990F75 /* print_example10_a.c in Sources */ = {isa = PBXBuildFile; fileRef = 26FDA9FC22F25BE000990F75 /* print_example10_a.c */; };
+		26FDA9FF22F25E8100990F75 /* print_example_10_b.c in Sources */ = {isa = PBXBuildFile; fileRef = 26FDA9FE22F25E8100990F75 /* print_example_10_b.c */; };
+		26FDAA0122F2A56C00990F75 /* 0801.c in Sources */ = {isa = PBXBuildFile; fileRef = 26FDAA0022F2A56C00990F75 /* 0801.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,7 +53,7 @@
 		26BD8D6422F14A4300C633B6 /* 542_example_2_3.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = 542_example_2_3.c; sourceTree = "<group>"; };
 		26BD8D6822F14C4F00C633B6 /* print_example01.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = print_example01.c; sourceTree = "<group>"; };
 		26BD8D6A22F14CD000C633B6 /* print_example02.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = print_example02.c; sourceTree = "<group>"; };
-		26BD8D6C22F14DFB00C633B6 /* print_example03.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = print_example03.c; sourceTree = "<group>"; };
+		26BD8D6C22F14DFB00C633B6 /* print_example03_malloc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = print_example03_malloc.c; sourceTree = "<group>"; };
 		26BD8D6E22F1532B00C633B6 /* print_example04.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = print_example04.c; sourceTree = "<group>"; };
 		26BD8D7022F155B200C633B6 /* print_example05.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = print_example05.c; sourceTree = "<group>"; };
 		26BD8D7222F1598800C633B6 /* print_example06.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = print_example06.c; sourceTree = "<group>"; };
@@ -61,6 +64,9 @@
 		26D98A5722E67CF8000AD14F /* array_exmaple_325_02.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = array_exmaple_325_02.c; sourceTree = "<group>"; };
 		26D98A5E22E68326000AD14F /* array_example_325_03.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = array_example_325_03.c; sourceTree = "<group>"; };
 		26D98A6022E685B4000AD14F /* example_246_9_7.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = example_246_9_7.c; sourceTree = "<group>"; };
+		26FDA9FC22F25BE000990F75 /* print_example10_a.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = print_example10_a.c; sourceTree = "<group>"; };
+		26FDA9FE22F25E8100990F75 /* print_example_10_b.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = print_example_10_b.c; sourceTree = "<group>"; };
+		26FDAA0022F2A56C00990F75 /* 0801.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = 0801.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,13 +111,16 @@
 				26BD8D6422F14A4300C633B6 /* 542_example_2_3.c */,
 				26BD8D6822F14C4F00C633B6 /* print_example01.c */,
 				26BD8D6A22F14CD000C633B6 /* print_example02.c */,
-				26BD8D6C22F14DFB00C633B6 /* print_example03.c */,
+				26BD8D6C22F14DFB00C633B6 /* print_example03_malloc.c */,
 				26BD8D6E22F1532B00C633B6 /* print_example04.c */,
 				26BD8D7022F155B200C633B6 /* print_example05.c */,
 				26BD8D7222F1598800C633B6 /* print_example06.c */,
 				26BD8D7422F15DAF00C633B6 /* print_example07.c */,
 				26BD8D7622F16AB900C633B6 /* print_example08.c */,
 				26BD8D7822F16BD300C633B6 /* print_example09.c */,
+				26FDA9FC22F25BE000990F75 /* print_example10_a.c */,
+				26FDA9FE22F25E8100990F75 /* print_example_10_b.c */,
+				26FDAA0022F2A56C00990F75 /* 0801.c */,
 			);
 			path = 2019_0723_try;
 			sourceTree = "<group>";
@@ -180,6 +189,7 @@
 				26D98A6122E685B4000AD14F /* example_246_9_7.c in Sources */,
 				26BD8D7522F15DAF00C633B6 /* print_example07.c in Sources */,
 				26D98A5F22E68326000AD14F /* array_example_325_03.c in Sources */,
+				26FDA9FF22F25E8100990F75 /* print_example_10_b.c in Sources */,
 				26BD8D7122F155B200C633B6 /* print_example05.c in Sources */,
 				26BD8D7722F16AB900C633B6 /* print_example08.c in Sources */,
 				26BD8D5922F1383900C633B6 /* array_example_325_01.c in Sources */,
@@ -187,10 +197,12 @@
 				26BD8D6922F14C4F00C633B6 /* print_example01.c in Sources */,
 				26BD8D6322F149D500C633B6 /* 542_example_2_2.c in Sources */,
 				26BD8D6B22F14CD000C633B6 /* print_example02.c in Sources */,
-				26BD8D6D22F14DFB00C633B6 /* print_example03.c in Sources */,
+				26BD8D6D22F14DFB00C633B6 /* print_example03_malloc.c in Sources */,
 				26D98A5822E67CF8000AD14F /* array_exmaple_325_02.c in Sources */,
 				26BD8D5B22F138CA00C633B6 /* example2_10.c in Sources */,
 				26BD8D6522F14A4300C633B6 /* 542_example_2_3.c in Sources */,
+				26FDAA0122F2A56C00990F75 /* 0801.c in Sources */,
+				26FDA9FD22F25BE000990F75 /* print_example10_a.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
