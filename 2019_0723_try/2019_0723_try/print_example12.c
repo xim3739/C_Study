@@ -23,7 +23,7 @@ int main() {
     
     print_array(a, b, sizeof(a)/sizeof(a[0]), sizeof(a[0])/ sizeof(int));
     
-    printf("=== trnspose ==== \n");
+    printf("\n=== trnspose ==== \n\n");
     
     transpose(a, b, sizeof(a)/sizeof(a[0]), sizeof(a[0])/sizeof(int));
     
