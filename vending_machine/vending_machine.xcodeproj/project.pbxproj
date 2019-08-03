@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		260B417522F5488B0033A890 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 260B417422F5488B0033A890 /* main.c */; };
+		267BEE5E22F57B6800F68468 /* ex.c in Sources */ = {isa = PBXBuildFile; fileRef = 267BEE5D22F57B6800F68468 /* ex.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		260B417122F5488B0033A890 /* vending_machine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = vending_machine; sourceTree = BUILT_PRODUCTS_DIR; };
 		260B417422F5488B0033A890 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		267BEE5D22F57B6800F68468 /* ex.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ex.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				260B417422F5488B0033A890 /* main.c */,
+				267BEE5D22F57B6800F68468 /* ex.c */,
 			);
 			path = vending_machine;
 			sourceTree = "<group>";
@@ -118,6 +121,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				267BEE5E22F57B6800F68468 /* ex.c in Sources */,
 				260B417522F5488B0033A890 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
