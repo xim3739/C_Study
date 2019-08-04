@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #define STATE_READY 0
 #define STATE_USING 1
@@ -15,11 +16,17 @@
 #define INPUT_COIN -4
 #define INPUT_BUY -5
 #define INPUT_DISPLAY -6
+#define INPUT_ADMIN_EXIT -7
+#define INPUT_ADD_ITEM -8
+#define INPUT_REMOVE_ITEM -9
 
-#define ADMIN_CODE "xim"
-#define RETURN_CODE "return"
-#define DISPLAY_CODE "display"
-#define BUY_CODE "get"
+#define ADMIN_COMMAND "xim"
+#define RETURN_COMMAND "return"
+#define DISPLAY_COMMAND "display"
+#define BUY_COMMAND "get "
+#define ADMIN_EXIT_COMMAND "exit"
+#define ADD_ITME_COOMMAND "add "
+#define REMOVE_ITEM_COMMAND "remove "
 
 #define CONTAINER_COUNT 10
 
@@ -42,6 +49,7 @@ bool strEqual(char *str1, char *srt2);
 bool strStart(char *str1, char *str2);
 void displayItems(void);
 void printReady(void);
+char* trim(char* str);
 
 
 // return next state
@@ -49,37 +57,36 @@ int handleReady(char *command);
 int handleUsing(char *command);
 int handleAdminist(char *command);
 void handleBuyItem(char *command);
+void handleAddItem(char *command);
+void handleRemoveItem(char *command);
 
 int main() {
-    Item a = {.name = "a", .count = 10, .price = 200};
-    Item b = {.name = "b", .count = 10, .price = 300};
-    Item c = {.name = "c", .count = 10, .price = 500};
-    currentItems[0] = a;
-    currentItems[1] = b;
-    currentItems[2] = c;
     
     printReady();
     char command[64];
+    char* trimCommand = NULL;
     
     while(true) {
         printf("\ninput command : ");
         
-        scanf("%s", command);
+        fgets(command,64,stdin);
+        //scanf("%s", command);
+        trimCommand = trim(command);
         
-        if (evaluateCommand(command) == INPUT_DISPLAY) {
+        if (evaluateCommand(trimCommand) == INPUT_DISPLAY) {
             displayItems();
             continue;
         }
         
         switch (currentState) {
             case STATE_READY:
-                currentState = handleReady(command);
+                currentState = handleReady(trimCommand);
                 break;
             case STATE_USING:
-                currentState = handleUsing(command);
+                currentState = handleUsing(trimCommand);
                 break;
             case STATE_ADMIN:
-                currentState = handleAdminist(command);
+                currentState = handleAdminist(trimCommand);
                 break;
             default:
                 printf("error unknown state!!");
@@ -99,7 +106,7 @@ int handleReady(char *command) {
             return STATE_USING;
         }
         case INPUT_ADMIN:
-            // TODO
+            printf("\nhellow adin!!");
             return STATE_ADMIN;
         default:
             printf("\ninput is invalid!! try again : ");
@@ -135,7 +142,7 @@ int handleUsing(char *command) {
 }
 
 void handleBuyItem(char *command) {
-    int index = atoi((command + strlen(BUY_CODE)));
+    int index = atoi((command + strlen(BUY_COMMAND)));
     if (index >= 0 && index < CONTAINER_COUNT) {
         Item *item = (currentItems + index);
         if ((*item).count == 0) {
@@ -153,7 +160,86 @@ void handleBuyItem(char *command) {
 }
 
 int handleAdminist(char *command) {
+    switch (evaluateCommand(command)) {
+        case INPUT_ADMIN_EXIT:
+            printf("\nreturn to Ready.");
+            printReady();
+            return STATE_READY;
+        case INPUT_ADD_ITEM:{
+            handleAddItem(command);
+            return STATE_ADMIN;
+        }
+        case INPUT_REMOVE_ITEM:{
+            handleRemoveItem(command);
+            return STATE_ADMIN;
+        }
+        default:
+            printf("\n wrong input system.");
+            break;
+    }
     return currentState;
+}
+void handleRemoveItem(char *command) {
+    char* strIndex = (command + strlen(REMOVE_ITEM_COMMAND));
+    int removeIndex = atoi(strIndex);
+    if(removeIndex >= 0 && removeIndex < CONTAINER_COUNT) {
+        currentItems[removeIndex].count = 0;
+        currentItems[removeIndex].price = 0;
+        *(currentItems[removeIndex].name) = (char)NULL;
+        printf("\nSuccess.");
+        
+    }else {
+        printf("\nerror");
+    }
+    
+}
+void handleAddItem(char *command) {
+    // add index, name, count, price
+    
+    char* strIndex = strtok(command + strlen(ADD_ITME_COOMMAND), ",");
+    char* name = strtok(NULL, ",");
+    char* strCount = strtok(NULL, ",");
+    char* strPrice = strtok(NULL, ",");
+    
+    if(strtok(NULL, ",") != NULL) {
+        printf("\nerror");
+        return;
+    }
+    
+    if(strIndex == NULL || name == NULL || strCount == NULL || strPrice == NULL) {
+        printf("\nerror");
+        return;
+    }
+
+    if(isDigit(strIndex) == false || isDigit(strCount) == false || isDigit(strPrice) == false) {
+        printf("\nerror");
+        return;
+    }
+    
+    int index = atoi(trim(strIndex));
+    if ((index >= 0 && index < CONTAINER_COUNT) == false) {
+        printf("\nerror");
+        return;
+    }
+    
+    int count = atoi(trim(strCount));
+    if(count <= 0) {
+        printf("\nerror");
+        return;
+    }
+    int price = atoi(trim(strPrice));
+    if(price <= 0) {
+        printf("\nerror");
+        return;
+    }
+    
+    strcpy(currentItems[index].name, name);
+    currentItems[index].count = count;
+    currentItems[index].price = price;
+    printf("\nSuccess");
+    
+    
+    return;
 }
 
 ///////////
@@ -188,14 +274,20 @@ bool strStart(char *str1, char *str2) {
 int evaluateCommand(char *command) {
     if (isDigit(command)) {
         return INPUT_COIN;
-    } else if (strEqual(command, ADMIN_CODE)) {
+    } else if (strEqual(command, ADMIN_COMMAND)) {
         return INPUT_ADMIN;
-    } else if (strEqual(command, RETURN_CODE)) {
+    } else if (strEqual(command, RETURN_COMMAND)) {
         return INPUT_RETURN;
-    } else if (strStart(command, BUY_CODE)){
+    } else if (strStart(command, BUY_COMMAND)){
         return INPUT_BUY;
-    } else if (strEqual(command, DISPLAY_CODE)) {
+    } else if (strEqual(command, DISPLAY_COMMAND)) {
         return INPUT_DISPLAY;
+    } else if (strEqual(command, ADMIN_EXIT_COMMAND)) {
+        return INPUT_ADMIN_EXIT;
+    } else if (strStart(command, ADD_ITME_COOMMAND)) {
+        return INPUT_ADD_ITEM;
+    } else if (strStart(command, REMOVE_ITEM_COMMAND)) {
+        return INPUT_REMOVE_ITEM;
     }
     return INPUT_INVALID;
 }
@@ -203,5 +295,17 @@ int evaluateCommand(char *command) {
 
 bool isDigit(char *str) {
     return (atoi(str) != 0) || strcmp(str, "0") == false;
+}
+
+char* trim(char* str) {
+    long l = strlen(str);
+    
+    while(isspace(str[l - 1])) --l;
+    while(*str && isspace(*str)){
+        ++str;
+        --l;
+    }
+    
+    return strndup(str,l);
 }
 //*/
