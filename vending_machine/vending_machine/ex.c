@@ -1,4 +1,4 @@
-//*/
+/*/
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
@@ -8,6 +8,7 @@
 #define STATE_READY 0
 #define STATE_USING 1
 #define STATE_ADMIN 2
+#define STATE_CARD 3
 
 
 #define INPUT_INVALID -1
@@ -19,6 +20,7 @@
 #define INPUT_ADMIN_EXIT -7
 #define INPUT_ADD_ITEM -8
 #define INPUT_REMOVE_ITEM -9
+#define INPUT_CARD -10
 
 #define ADMIN_COMMAND "xim"
 #define RETURN_COMMAND "return"
@@ -27,6 +29,7 @@
 #define ADMIN_EXIT_COMMAND "exit"
 #define ADD_ITME_COOMMAND "add "
 #define REMOVE_ITEM_COMMAND "remove "
+#define CARD_COMMAND "card "
 
 #define CONTAINER_COUNT 10
 
@@ -56,6 +59,7 @@ char* trim(char* str);
 int handleReady(char *command);
 int handleUsing(char *command);
 int handleAdminist(char *command);
+int handleCard(char *command);
 void handleBuyItem(char *command);
 void handleAddItem(char *command);
 void handleRemoveItem(char *command);
@@ -88,6 +92,8 @@ int main() {
             case STATE_ADMIN:
                 currentState = handleAdminist(trimCommand);
                 break;
+            case STATE_CARD:
+                currentState = handleCard(trimCommand);
             default:
                 printf("error unknown state!!");
                 break;
@@ -112,6 +118,17 @@ int handleReady(char *command) {
             printf("\ninput is invalid!! try again : ");
     }
     return currentState;
+}
+
+int handleCard(char *command) {
+    switch (evaluateCommand(command)) {
+        case INPUT_RETURN:
+            printf("\nreturn card !!");
+            return STATE_USING;
+        case INPUT_CARD_BUY:
+            
+    }
+    
 }
 
 int handleUsing(char *command) {
@@ -179,6 +196,7 @@ int handleAdminist(char *command) {
     }
     return currentState;
 }
+
 void handleRemoveItem(char *command) {
     char* strIndex = (command + strlen(REMOVE_ITEM_COMMAND));
     int removeIndex = atoi(strIndex);
@@ -193,6 +211,7 @@ void handleRemoveItem(char *command) {
     }
     
 }
+
 void handleAddItem(char *command) {
     // add index, name, count, price
     
@@ -288,6 +307,8 @@ int evaluateCommand(char *command) {
         return INPUT_ADD_ITEM;
     } else if (strStart(command, REMOVE_ITEM_COMMAND)) {
         return INPUT_REMOVE_ITEM;
+    } else if (strStart(command, CARD_COMMAND)) {
+        return INPUT_CARD;
     }
     return INPUT_INVALID;
 }

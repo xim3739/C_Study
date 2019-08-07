@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		260B417522F5488B0033A890 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 260B417422F5488B0033A890 /* main.c */; };
+		265812D922F829C000CA50EC /* vending_machine.c in Sources */ = {isa = PBXBuildFile; fileRef = 265812D822F829C000CA50EC /* vending_machine.c */; };
+		265812E122F832C000CA50EC /* player.c in Sources */ = {isa = PBXBuildFile; fileRef = 265812E022F832C000CA50EC /* player.c */; };
 		267BEE5E22F57B6800F68468 /* ex.c in Sources */ = {isa = PBXBuildFile; fileRef = 267BEE5D22F57B6800F68468 /* ex.c */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +28,8 @@
 /* Begin PBXFileReference section */
 		260B417122F5488B0033A890 /* vending_machine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = vending_machine; sourceTree = BUILT_PRODUCTS_DIR; };
 		260B417422F5488B0033A890 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		265812D822F829C000CA50EC /* vending_machine.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vending_machine.c; sourceTree = "<group>"; };
+		265812E022F832C000CA50EC /* player.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = player.c; sourceTree = "<group>"; };
 		267BEE5D22F57B6800F68468 /* ex.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ex.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,7 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				260B417422F5488B0033A890 /* main.c */,
+				265812D822F829C000CA50EC /* vending_machine.c */,
 				267BEE5D22F57B6800F68468 /* ex.c */,
+				265812E022F832C000CA50EC /* player.c */,
 			);
 			path = vending_machine;
 			sourceTree = "<group>";
@@ -123,6 +129,8 @@
 			files = (
 				267BEE5E22F57B6800F68468 /* ex.c in Sources */,
 				260B417522F5488B0033A890 /* main.c in Sources */,
+				265812E122F832C000CA50EC /* player.c in Sources */,
+				265812D922F829C000CA50EC /* vending_machine.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

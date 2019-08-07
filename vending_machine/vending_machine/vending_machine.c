@@ -1,8 +1,9 @@
-//*/
+/*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <unistd.h>
+ 
 //macro
 #define CONTINE_FLAG -1
 #define RETURN_FLAG 1
@@ -35,10 +36,77 @@ char *goodsName[5] = {" ","coke","soda","jucie","coffee"};
 int price[5] = {0, 700, 900, 1200, 500};
 int vendingMachineMoney = 100000;
 int totalMoney = 0;
-char changeName[64];
-int main() {
 
-    vanding_machine();
+int main() {
+    
+    int money = 0;
+    int goodsNum = 0;
+    int goodsCount = 0;
+    int goodsPrice = 0;
+    int flag = 0;
+    
+    while(1) {
+        
+        while(1){
+            menu_interface();
+            printf("자판기 남은 금액 : %d \n", vendingMachineMoney);
+            if(vendingMachineMoney == 0) {
+                printf("자판기의 잔고가 부족합니다. 죄송합니다. \n");
+                continue;
+            }else {
+                break;
+            }
+        }
+        
+        switch (pay_way()) {
+                
+            case MONEY_COMMAND:
+                input_money_system(&money, &goodsNum, &goodsCount, &flag);
+                break;
+                
+            case CARD_COMMAND:
+                printf("카드를 확인하였습니다. \n");
+                buy_card(&goodsNum, &goodsCount, &flag);
+                break;
+                
+            case ERROR_COMMAND:
+                printf("다시 입력해주세요. \n");
+                continue;
+                
+            case ADMINIST_COMMAND:
+                
+                while(1){
+                    
+                    switch (administ_system()) {
+                        case ADD_SYSTEM:
+                            add_goods(&goodsNum, &goodsPrice);
+                            continue;
+                        case REMOVE_SYSTEM:
+                            remove_goods(&goodsNum);
+                            continue;
+                        case VENDING_MONEY_SYSTEM:
+                            vanding_money_system();
+                            continue;
+                        case EXIT_ADMINIST:
+                            printf("$$$ 관리자 모드를 종료합니다. $$$ \n");
+                            break;
+                        case ERROR_COMMAND:
+                            printf("확인 후 다시 입력 해주세요.\n");
+                            continue;
+                    }
+                    
+                    break;
+                }
+        }
+        
+        if(flag == CONTINE_FLAG){
+            
+            printf("%d번 %s %d개를 드립니다. 잔돈 %d원을, 또는 카드를 반환합니다. \n",goodsNum, goodsName[goodsNum], goodsCount, totalMoney);
+            
+            totalMoney = totalMoney - totalMoney;
+        }
+        flag = RETURN_FLAG;
+    }
     
     return 0;
     
@@ -49,9 +117,8 @@ void menu_interface(void) {
     int i = 0;
     
     printf("\n=============== 자판기 =================\n");
-    printf("번호     이름       가격      재고\n");
     for(i = 1; i < contaner; i++) {
-        printf("%2d %8s    %5d    %5d\n", i, goodsName[i], price[i], goodsStore[i]);
+        printf("%d %10s %10d %10d\n", i, goodsName[i], price[i], goodsStore[i]);
     }
     
     return;
@@ -60,12 +127,11 @@ void menu_interface(void) {
 int pay_way(void) {
     
     char paySelect = 0;
-
+    
     printf("결제 수단을 선택하세요. (카드 = c ... 현금 = m) : ");
     rewind(stdin);
     scanf("%c", &paySelect);
-    rewind(stdin);
-
+    
     if(paySelect == 'C' || paySelect == 'c') {
         return CARD_COMMAND;
     } else if(paySelect == 'M' || paySelect == 'm') {
@@ -86,8 +152,7 @@ int administ_system(void) {
     printf("시스템을 입력하세요. (추가 = a , 삭제 = r , 자판기 금액관리 = v, 종료 = e): ");
     rewind(stdin);
     scanf("%c", &selectSystem);
-    rewind(stdin);
-
+    
     if(selectSystem == 'a' || selectSystem == 'A') {
         return ADD_SYSTEM;
     } else if(selectSystem == 'r' || selectSystem == 'R') {
@@ -103,12 +168,13 @@ int administ_system(void) {
 
 void add_goods(int* goodsNum, int* goodsPrice) {
     
+    char name[16];
     int store = 0;
     
     printf("\n재고 추가 시스템 \n");
     
     while(1){
-        printf("추가하거나 변경 할 재고의 번호를 입력하세요. (1 ~ 4) : ");
+        printf("추가하거나 변경 할 재고의 번호를 입력하세요. (1 ~ 4)");
         scanf("%d",goodsNum);
         if(*goodsNum >= 1 && *goodsNum <= 4) {
             break;
@@ -117,13 +183,6 @@ void add_goods(int* goodsNum, int* goodsPrice) {
             continue;
         }
     }
-    
-    printf("추가하거나 변경 할 재고의 이름을 입력하세요. : ");
-    rewind(stdin);
-    scanf("%s", changeName);
-    goodsName[*goodsNum] = changeName;
-    
-    rewind(stdin);
     
     while(1) {
         printf("추가하거나 변경할 재고의 개수를 입력하세요. (1 ~ 20): ");
@@ -141,7 +200,7 @@ void add_goods(int* goodsNum, int* goodsPrice) {
     while(1) {
         printf("추가하거나 변경 할 재고의 가격을 입력하세요. (500 ~ 2000): ");
         scanf("%d", goodsPrice);
-        if(*goodsPrice >= 500 && *goodsPrice <= 2000) {
+        if(*goodsPrice >= 500 || *goodsPrice <= 2000) {
             price[*goodsNum] = *goodsPrice;
             sleep(1);
             printf("%d번 %s물품을 %d 가격으로 추가, 변경 하였습니다. \n", *goodsNum,goodsName[*goodsNum],price[*goodsNum]);
@@ -151,7 +210,6 @@ void add_goods(int* goodsNum, int* goodsPrice) {
             continue;
         }
     }
-    
 }
 
 void remove_goods(int* goodsNum) {
@@ -164,8 +222,7 @@ void remove_goods(int* goodsNum) {
         if(*goodsNum < 1 || *goodsNum > 4) {
             printf("확인 후 다시 입력 해주세요. \n");
         } else {
-            printf("%d번 %s물품의 재고를 제거합니다. \n", *goodsNum, goodsName[*goodsNum]);
-            goodsName[*goodsNum] = " ";
+            printf("%d번 %s물품을 제거합니다. \n", *goodsNum, goodsName[*goodsNum]);
             goodsStore[*goodsNum] = 0;
             price[*goodsNum] = 0;
             sleep(1);
@@ -232,13 +289,10 @@ back:
         }else if(goodsStore[*goodsNum] > *goodsCount) {
             printf("%d개를 선택하였습니다. \n",*goodsCount);
             printf("%d번 %s %d개를 드립니다.\n",*goodsNum, goodsName[*goodsNum], *goodsCount);
-            vendingMachineMoney = vendingMachineMoney + (price[*goodsNum] * *goodsCount);
-            goodsStore[*goodsNum] = goodsStore[*goodsNum] - *goodsCount;
         selectBack:
             printf("계속 구매 하시겠습니까? (y , n) : ");
             rewind(stdin);
             scanf("%c", &selectChar);
-            rewind(stdin);
             if(selectChar == 'y' || selectChar == 'Y') {
                 goto back;
             } else if(selectChar == 'n' || selectChar == 'N') {
@@ -253,11 +307,13 @@ back:
     }
     
     *flag = CONTINE_FLAG;
+    vendingMachineMoney = vendingMachineMoney + (price[*goodsNum] * *goodsCount);
+    goodsStore[*goodsNum] = goodsStore[*goodsNum] - *goodsCount;
     
-    cardNon:
+cardNon:
     
     return;
-
+    
 }
 
 void input_money_system(int* money, int* goodsNum, int* goodsCount, int* flag){
@@ -293,7 +349,6 @@ back:
         vendingMachineMoney += totalMoney;
         
         while(1){
-        MoneyBack:
             printf("원하시는 물건의 번호를 입력하세요. (1 ~ 4, 반환 0) : ");
             scanf("%d", goodsNum);
             if(*goodsNum == 0) {
@@ -327,7 +382,6 @@ back:
                 printf("금액을 더 넣으시겠습니까? (y,n)");
                 rewind(stdin);
                 scanf("%c", &selectChar);
-                rewind(stdin);
                 if(selectChar == 'y' || selectChar == 'Y') {
                     goto back;
                 } else if(selectChar == 'n' || selectChar == 'N') {
@@ -335,111 +389,22 @@ back:
                 }
             }else if(*goodsCount == 0) {
                 printf("%d원을 반환하고 종료합니다. \n",totalMoney);
-                vendingMachineMoney = vendingMachineMoney - totalMoney;
                 totalMoney = totalMoney - totalMoney;
-                
                 *flag = RETURN_FLAG;
                 break;
             }else if(goodsStore[*goodsNum] > *goodsCount) {
                 printf("%d개를 선택하였습니다. \n",*goodsCount);
-                goodsStore[*goodsNum] = goodsStore[*goodsNum] - *goodsCount;
-                totalMoney = totalMoney - (price[*goodsNum] * *goodsCount);
-                vendingMachineMoney = vendingMachineMoney + (price[*goodsNum] * *goodsCount);
-            selectMoneyback:
-                printf("계속 구매 하시겠습니까? (y , n) : ");
-                rewind(stdin);
-                scanf("%c", &selectChar);
-                rewind(stdin);
-                if(selectChar == 'y' || selectChar == 'Y') {
-                    goto MoneyBack;
-                } else if(selectChar == 'n' || selectChar == 'N') {
-                    break;
-                } else {
-                    printf("확인 후 다시 입력해주세요. \n");
-                    goto selectMoneyback;
-                }
                 break;
             }
-        
         }
     }
+    
+    
+    goodsStore[*goodsNum] = goodsStore[*goodsNum] - *goodsCount;
+    totalMoney = totalMoney - (price[*goodsNum] * *goodsCount);
+    vendingMachineMoney = vendingMachineMoney - totalMoney;
     
 goodsNumNon:
-    
-    return;
-}
-
-void vanding_machine(void) {
-    
-    int money = 0;
-    int goodsNum = 0;
-    int goodsCount = 0;
-    int goodsPrice = 0;
-    int flag = 0;
-    
-    while(1) {
-        
-        while(1){
-            
-            menu_interface();
-            printf("자판기 남은 금액 : %d \n", vendingMachineMoney);
-            if(vendingMachineMoney == 0) {
-                printf("자판기의 잔고가 부족합니다. 죄송합니다. \n");
-                continue;
-            }else {
-                break;
-            }
-        }
-        
-        switch (pay_way()) {
-                
-            case MONEY_COMMAND:
-                input_money_system(&money, &goodsNum, &goodsCount, &flag);
-                break;
-                
-            case CARD_COMMAND:
-                printf("카드를 확인하였습니다. \n");
-                buy_card(&goodsNum, &goodsCount, &flag);
-                break;
-                
-            case ERROR_COMMAND:
-                printf("다시 입력해주세요. \n");
-                continue;
-                
-            case ADMINIST_COMMAND:
-                while(1){
-                    
-                switch (administ_system()) {
-                    case ADD_SYSTEM:
-                        add_goods(&goodsNum, &goodsPrice);
-                        continue;
-                    case REMOVE_SYSTEM:
-                        remove_goods(&goodsNum);
-                        continue;
-                    case VENDING_MONEY_SYSTEM:
-                        vanding_money_system();
-                        continue;
-                    case EXIT_ADMINIST:
-                        printf("$$$ 관리자 모드를 종료합니다. $$$ \n");
-                        break;
-                    case ERROR_COMMAND:
-                        printf("확인 후 다시 입력 해주세요.\n");
-                        continue;
-                    }
-                    
-                    break;
-                }
-        }
-        
-        if(flag == CONTINE_FLAG){
-            
-            printf("%d번 %s %d개를 드립니다. 잔돈 %d원을, 또는 카드를 반환합니다. \n",goodsNum, goodsName[goodsNum], goodsCount, totalMoney);
-        
-            totalMoney = totalMoney - totalMoney;
-        }
-        flag = RETURN_FLAG;
-
-    }
     
     return;
 }
